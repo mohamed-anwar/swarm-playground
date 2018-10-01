@@ -6,19 +6,23 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <style type="text/css" media="screen">
     body {
-        //overflow: hidden;
-        //background: black;
-        //color: white;
-        font-family: Ubuntu;
+      //overflow: hidden;
+      //background: black;
+      //color: white;
+      font-family: Ubuntu;
     }
     #editor {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
+      width: 600px;
+      height: 600px;
+      float: left;
     }
     #sketch {
       width: 600px;
+      height: 600px;
+      float: left;
+    }
+    .split, .gutter.gutter-horizontal {
+      float: left;
       height: 600px;
     }
     </style>
@@ -26,14 +30,12 @@
   <body>
     <div class="container" style="height: 600px; width: 100%; max-width: 100%;">
       <div class="row">
-        <h5>Swarm Playground
-          <button style="float: right;" onclick="eval(editor.getValue()); __boidScript = boidScript;">Deploy!</button>
-        </h5>
+        <h5 style="float: left">Swarm Playground</h5>
+        <button style="float: right;" onclick="eval(editor.getValue()); __boidScript = boidScript;">Deploy!</button>
+        <button style="float: right; margin-right: 5px;" onclick="swarmInit()">Re-init</button>
       </div>
       <div class="row">
-        <div class="six columns">
-          <small>Boid Code</small>
-          <div id="editor">function boidScript(boid, peers) {
+        <div id="editor">function boidScript(boid, peers) {
   var fx = 0;
   var fy = 0;
   var G  = 10;
@@ -55,11 +57,7 @@
 
   return boid;
 }</div>
-        </div>
-        <div class="six columns">
-          <small>Simulation</small>
-          <div id="sketch"></div>
-        </div>
+        <div id="sketch"></div>
       </div>
     </div>
 
@@ -73,6 +71,10 @@
           useSoftTabs: true,
           fontSize: "12pt"
         });
+    </script>
+    <script src="https://unpkg.com/split.js/split.min.js"></script>
+    <script>
+      Split(['#editor', '#sketch'], {gutterSize: 5});
     </script>
   </body>
 </html>

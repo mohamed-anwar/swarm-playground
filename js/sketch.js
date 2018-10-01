@@ -10,6 +10,7 @@ const NR_NEIGH   = 5;
 const NEIGH_DIST = 50;
 
 var boids = [];
+var __boidScript = null;
 
 var y = 100;
 var x = 100;
@@ -24,6 +25,8 @@ function setup() {
 
 function swarmInit() {
   /* fill boids with random values */
+  boids = [];
+  __boidScript = null;
   for (var i = 0; i < NR_BOIDS; ++i) {
     var boid = {};
     boid.x  = Math.random() * CANVAS_W;
@@ -41,8 +44,6 @@ function drawBoid(b) {
 function boidDist(a, b) {
   return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
 }
-
-var __boidScript = null;
 
 function draw() { 
   background(0x2c, 0x3e, 0x50);
