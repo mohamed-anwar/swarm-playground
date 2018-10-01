@@ -88,7 +88,10 @@ function draw() {
     if (boids[i].y < BOID_RAD) {boids[i].y = BOID_RAD; boids[i].vy *= -1;}
     if (boids[i].x > CANVAS_W - BOID_RAD) {boids[i].x = CANVAS_W - BOID_RAD; boids[i].vx *= -1;}
     if (boids[i].y > CANVAS_H - BOID_RAD) {boids[i].y = CANVAS_H - BOID_RAD; boids[i].vy *= -1;}
+  }
 
+  /* Draw boids */
+  for (var i = 0; i < NR_BOIDS; ++i) {
     drawBoid(boids[i]);
   }
 } 
