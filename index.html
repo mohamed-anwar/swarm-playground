@@ -68,7 +68,11 @@
         var editor = ace.edit("editor");
         editor.setTheme("ace/theme/monokai");
         editor.session.setMode("ace/mode/javascript");
-        editor.setOptions({fontSize: "12pt"});
+        editor.setOptions({
+          tabSize: 2,
+          useSoftTabs: true
+          fontSize: "12pt"
+        });
     </script>
   </body>
 </html>
